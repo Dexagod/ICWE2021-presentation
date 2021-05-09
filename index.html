@@ -274,44 +274,39 @@
                 "tree:member":[...]
               }
               </code></pre>
+              <p>Dataset entities are members of the collection</p>
           </section>
           <section data-auto-animate>
-            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="5-9">
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="5-7">
               {
                 "@context":"https://w3id.org/tree#",
                 "@id":"#Dataset",
                 "@type":"tree:Collection",
                 "tree:view":{
-                  "@id":"node1.jsonld",
-                  "tree:relation":[
-                    ...
-                  ]
+                  "@id":"/fragments/root.jsonld#node",
                 },
                 "tree:member":[...]
               }
               </code></pre>
+              <p>We discover the root through the view property</p>
           </section>
           <section data-auto-animate>
-            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="5-16">
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="3-16">
               {
                 "@context":"https://w3id.org/tree#",
-                "@id":"#Dataset",
-                "@type":"tree:Collection",
-                "tree:view":{
-                  "@id":"node1.jsonld",
-                  "tree:relation":[
-                    {
-                      "@type":"tree:GreaterThanRelation",
-                      "tree:path":"foaf:name",
-                      "tree:value":"Alice",
-                      "tree:node":"node2.jsonld",
-                    },
-                    ...
-                  ]
-                },
-                "tree:member":[...]
+                "@id":"#node",
+                "tree:relation":[
+                  {
+                    "@type":"tree:GreaterThanRelation",
+                    "tree:path":"foaf:name",
+                    "tree:value":"Alice",
+                    "tree:node":"/fragments/2.jsonld#node"",
+                  },
+                  ...
+                ]
               }
               </code></pre>
+              <p>fragment 2 contains entities with a foaf:name property greater than Alice</p>
           </section>
           
           <aside class="notes">         
@@ -567,12 +562,20 @@
           <h3>Future vision</h3>
           <section data-auto-animate>
             <ul style="width: 70vw">
+              <li>Optimize indexing data structures</li>
+            </ul>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>Optimize indexing data structures</li>
               <li>Expand to other search spaces such as geographical tiling</li>
             </ul>
             </ul>
           </section>
           <section data-auto-animate>
             <ul style="width: 70vw">
+              <li>Optimize indexing data structures</li>
               <li>Expand to other search spaces such as geographical tiling</li>
               <li>Explore additional functionality such as fuzzy matching</li>
             </ul>
