@@ -31,16 +31,25 @@
         </section>
 
         <section>
-          <h3>Why prefix search</h3>
+          <h3>Querying data collections on the Web</h3>
+          <section>
+            </br>
+            <img style="width: auto" src="dist/assets/intro_1.png" alt="image">
+          </section>
+          <section>
+            </br>
+            <img style="height: 50vh" src="dist/assets/intro_google_maps.png" alt="image">
+          </section>
           <aside class="notes">         
           </aside>
         </section>
 
         <section>
-          <h3>But prefix search exists?</h3>
+          <h3>What are your options</h3>
           <section>
             <div>
-              <p>Server processing</p>
+              </br>
+              <p>A server API</p>
               <img style="height: 50vh" src="dist/assets/approach_server.svg" alt="image">
             </div>
             <aside class="notes">         
@@ -48,7 +57,17 @@
           </section>
           <section>
             <div>
-              <p>Client processing</p>
+              </br>
+              <p>A server API</p>
+              <img style="margin: 0; padding: 0; height: 60vh" src="dist/assets/elasticsearch.png" alt="image">
+            </div>
+            <aside class="notes">         
+            </aside>
+          </section>
+          <section>
+            <div>
+              </br>
+              <p>Rely on third parties</p>
               <img style="height: 50vh" src="dist/assets/approach_client.svg" alt="image">
             </div>
             <aside class="notes">         
@@ -57,12 +76,24 @@
         </section>
 
         <section>
-          <div>
-            <h3>An in between solution?</h3>
-            <img style="height: 50vh" src="dist/assets/approach_ours.svg" alt="image">
-          </div>
-          <aside class="notes">         
-          </aside>
+          <section>
+            <div>
+              <h3>What about fragmentation?</h3>
+              <p>Can we find a middle ground</p>
+              <img style="height: 50vh" src="dist/assets/our_approach2.png" alt="image">
+            </div>
+            <aside class="notes">         
+            </aside>
+          </section>
+          <section>
+            <div>
+              </br>
+              <p>Inspired by </p>
+              <img style="height: 50vh" src="dist/assets/LDF.svg" alt="image">
+            </div>
+            <aside class="notes">         
+            </aside>
+          </section>
         </section>
 
         <section>
@@ -94,13 +125,7 @@
           </section>
         </section>
         
-
-        <section>
-          <h3>Related work</h3>
-          <img style="margin: 0; padding: 0; height: 60vh" src="dist/assets/elasticsearch.png" alt="image">
-          <aside class="notes">         
-          </aside>
-        </section>
+<!-- 
 
         <section>
           <h3>Related work</h3>
@@ -123,69 +148,236 @@
           <p>query continuation</p>
           <aside class="notes">         
           </aside>
-        </section>
+        </section> -->
 
         <section>
-          <h3>Fragmentation and traversal</h3>
+          <h3>What do we need</h3>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>a dataset index</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>a dataset index</li>
+              <li>a self-describing fragmentation</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>a dataset index</li>
+              <li>a self-describing fragmentation</li>
+              <li>a generic client</li>
+            </ul>
+          </section>
+          <aside class="notes">         
+          </aside>
+        </section>
+
+
+        <section>
+          <h3>A dataset index</h3>
+          <section>
+            <div>
+              </br>
+              <p>what properties</p>
+              <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="|3,6-7">
+                {
+                  "@type":"Person",
+                  "Name": "Carol Carolsson",
+                  "Address": {
+                    "Country": "Belgium",
+                    "Municipality": "Ghent",
+                    "Street": "Albertlaan",
+                    "Number": 23
+                  }
+                }
+                </code></pre>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <div>
+              </br>
+              <div>
+              <p>what data structure</p>
+              <img data-id="tree-animation" style="height: 45vh" src="dist/assets/tree_0.svg" alt="image">
+            </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <div>
+              </br>
+              <p>balanced search trees</p>
+              <div style="height: 45vh">
+                <div style="width: 35%; float: left;">
+                  <ul>
+                    <li>maximum depth</li>
+                  </ul>
+                </div>
+                <img data-id="tree-animation" style="width: 60%; float: left" src="dist/assets/tree_1.svg" alt="image">
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <div>
+              </br>
+              <p>what data structure</p>
+              <div style="height: 45vh">
+                <div style="width: 35%; float: left;">
+                  <ul>
+                    <li>maximum depth</li>
+                    <li>caching</li>
+                    <li>locality</li>
+                  </ul>
+                </div>
+                <img data-id="tree-animation" style="width: 60%; float: left" src="dist/assets/tree_2.svg" alt="image">
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <div>
+              </br>
+              <p>what data structure</p>
+              <div style="height: 45vh">
+                <div style="width: 35%; float: left;">
+                  <ul>
+                    <li>maximum depth</li>
+                    <li>caching</li>
+                    <li>locality</li>
+                    <li>streaming results</li>
+                  </ul>
+                </div>
+                <img data-id="tree-animation" style="width: 60%; float: left" src="dist/assets/tree_3.svg" alt="image">
+              </div>
+            </div>
+          </section>
           <aside class="notes">         
           </aside>
         </section>
 
         <section>
-          <h3>A client independent fragmentation</h3>
-          Fragment a collection
-          Self-describing
-          requires semantic descriptions
-          <aside class="notes">         
-          </aside>
-        </section>
-
-        <section>
-          <h3>A TREE specification</h3>
-          <pre><code data-trim data-noescape data-line-numbers="4|5-7|8-10">
-            {
-              "@context":"https://w3id.org/tree#",
-              "@id":"#Dataset",
-              "@type":"tree:Collection",
-              "tree:shape":"#entityShape",
-              "tree:view":{
-                "@id":"node1.jsonld",
-                "tree:relation":[
-                  {
-                     "@type":"tree:GreaterThanRelation",
-                    "tree:path":"foaf:name",
-                    "tree:value":"Alice",
-                    "tree:node":"node2.jsonld",
-                  },
-                  ...
-                ]
-              },
-              "tree:member":[...]
+          <h3>A self-describing fragmentation</h3>
+          <section data-auto-animate>
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="2">
+              {
+                "@context":"https://w3id.org/tree#",
               }
-            </code></pre>
-          <aside class="notes">         
-          </aside>
-        </section>
-
-        <section>
-          <h3>A tree structured fragmentation</h3>
-          Fragment using B-tree
-          More explanation?
-
+              </code></pre>
+          </section>
+          <section data-auto-animate>
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="3-4,6">
+              {
+                "@context":"https://w3id.org/tree#",
+                "@id":"#Dataset",
+                "@type":"tree:Collection",
+                ...
+                "tree:member":[...]
+              }
+              </code></pre>
+          </section>
+          <section data-auto-animate>
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="5-9">
+              {
+                "@context":"https://w3id.org/tree#",
+                "@id":"#Dataset",
+                "@type":"tree:Collection",
+                "tree:view":{
+                  "@id":"node1.jsonld",
+                  "tree:relation":[
+                    ...
+                  ]
+                },
+                "tree:member":[...]
+              }
+              </code></pre>
+          </section>
+          <section data-auto-animate>
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="5-16">
+              {
+                "@context":"https://w3id.org/tree#",
+                "@id":"#Dataset",
+                "@type":"tree:Collection",
+                "tree:view":{
+                  "@id":"node1.jsonld",
+                  "tree:relation":[
+                    {
+                      "@type":"tree:GreaterThanRelation",
+                      "tree:path":"foaf:name",
+                      "tree:value":"Alice",
+                      "tree:node":"node2.jsonld",
+                    },
+                    ...
+                  ]
+                },
+                "tree:member":[...]
+              }
+              </code></pre>
+          </section>
+          
           <aside class="notes">         
           </aside>
         </section>
 
         <section>
           <h3>A generic client</h3>
-          <pre>
-            <code data-trim data-noescape data-line-numbers="4|5-7|8-10">
+          <section data-auto-animate>
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="">
+              // A prefix search algorithm given 
+              // a node id, a prefix value and a property path
               prefixSearch(nodeId, prefix, path?) {
-                //Request a fragment over HTTP
-                dataFile = fetch(nodeId)
-                members, nodes, relations = extractMetadata(dataFile)
-                //Emit data entities matching the prefix
-                emit(matchPrefix(members, prefix, path))
+                // Request a fragment over HTTP
+                fragment = fetch(nodeId)
+                // Extract hypermedia controls and dataset members
+                members, nodes, relations = extractMetadata(fragment)
+              }            
+              </code></pre>
+          </section>
+          <section data-auto-animate>
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers=""> 
+              // A prefix search algorithm given 
+              // a node id, a prefix value and a property path
+              prefixSearch(nodeId, prefix, path?) {
+                // Request a fragment over HTTP
+                fragment = fetch(nodeId)
+                // Extract hypermedia controls and dataset members
+                members, nodes, relations = extractMetadata(fragment)
+                // Emit the found dataset entities matching
+                // the given prefix value for the given property path
+                emit(match(members, prefix, path))
+                // Group relations per child node
+                groupedRelations = group(relations)
+                for (group of groupedRelations) {
+                  // Check if relation 
+                  for (relation of group) {
+                    if canPrune(relation, prefix, path)
+
+                  }
+                }
+
+                for (relationgroup of groupPerChildNode(relations)) {
+                  //$\textcolor{olivegreen}{\chi}$ is based on the relation type
+                  relation = relationgroup.next()
+                  $\chi$ = buildFunction(relation.type)
+                  while (relation && matchPath(relation.path, path) && $\chi$(prefix, relation.value)) {
+                    relation = relationgroup.next()
+                    $\chi$ = buildFunction(relation.type)
+                  }
+                  if (!relation)
+                    prefixSearch(relation.node, prefix, path)|\label{recurse}|
+                }
+              }     
+              </code></pre>
+          </section>
+          <section data-auto-animate>
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers=""> 
+              // A prefix search algorithm given 
+              // a node id, a prefix value and a property path
+              prefixSearch(nodeId, prefix, path?) {
+                // Request a fragment over HTTP
+                fragment = fetch(nodeId)
+                // Extract hypermedia controls and dataset members
+                members, nodes, relations = extractMetadata(fragment)
+                emit(match(members, prefix, path))
                 //Group available relations per child node
                 for (relationgroup of groupPerChildNode(relations)) {
                   //$\textcolor{olivegreen}{\chi}$ is based on the relation type
@@ -198,44 +390,53 @@
                   if (!relation)
                     prefixSearch(relation.node, prefix, path)|\label{recurse}|
                 }
-              }            
-            </code>
-          </pre>
+              }     
+              </code></pre>
+          </section>
           <aside class="notes">         
           </aside>
         </section>
 
         <section>
-          <h3>Experiments</h3>
-          <table>
-            <thead>
-              <tr>
-                <th>Dataset</th>
-                <th>transport stops</th>
-                <th>Open Street Map</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>entities</td>
-                <td>73k</td>
-                <td>3.87m</td>
-              </tr>
-              <tr>
-                <td>triples</td>
-                <td>438k</td>
-                <td>125m</td>
-              </tr>
-            </tbody>
-          </table>
+          <h3>Evaluation</h3>
+          <section>
+            <table>
+              <thead>
+                <tr>
+                  <th>Dataset</th>
+                  <th>transport stops</th>
+                  <th>Open Street Map</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>entities</td>
+                  <td>73k</td>
+                  <td>3.87m</td>
+                </tr>
+                <tr>
+                  <td>triples</td>
+                  <td>438k</td>
+                  <td>125m</td>
+                </tr>
+                <tr>
+                  <td>query log</td>
+                  <td>✔</td>
+                  <td>✘</td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
           <aside class="notes">         
           </aside>
         </section>
 
         <section>
-          <h3>Cache efficiency</h3>
+          <h3>Server cache</h3>
           <p>transport stops</p>
-          <img src="dist/assets/servercachehitratio.svg" alt="image">
+          <section>
+            <img src="dist/assets/servercachehitratio.svg" alt="image">
+          </section>
           <aside class="notes">         
           </aside>
         </section>
@@ -245,7 +446,7 @@
           <section>
             </br>
             <div>
-              <p>efficiency - stops</p>
+              <p>percentage of useful results</p>
               <img style="height: 50vh" src="dist/assets/efficiency.svg" alt="image">
             </div>
             <aside class="notes">         
@@ -309,73 +510,81 @@
         </section>
 
         <section>
-          <h3>Results</h3>
-          <ul>
-            <li>
-              Cache efficiency
-            </li>
-            <li>
-              Query performance
-            </li>
-            <li>
-              Efficiency & bandwidth
-            </li>
-            <li>
-              Fragment sizes
-            </li>
-          </ul>
-          <aside class="notes">         
-          </aside>
-        </section>
-
-        <section>
-          <h3>Discussion</h3>
-          <ul>
-            <li>
-              Flexibility
-            </li>
-            <li>
-              http request scale with fragmentation structure
-            </li>
-            <li>
-              caching behavior
-            </li>
-          </ul>
-          <aside class="notes">         
-          </aside>
-        </section>
-
-        <section>
           <h3>What works</h3>
-          <ul>
-            <li>acceptable user perceived performance</li>
-            <li>High cache hit ratios</li>
-            <li>Generalizable to different search spaces using different indexing structures</li>
-            <li>Generic client</li>
-          </ul>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>user perceived performance</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>user perceived performance</li>
+              <li>fragment caching</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>user perceived performance</li>
+              <li>fragment caching</li>
+              <li>client flexibility</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>user perceived performance</li>
+              <li>fragment caching</li>
+              <li>client flexibility</li>
+              <li>generalize to different search spaces</li>
+            </ul>
+          </section>
         </section>
 
         <section>
           <h3>Challenges</h3>
-          <ul>
-            <li>Fragmentation size</li>
-            <li>Multi-index searches</li>
-            <li>Live data</li>
-          </ul>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>Fragmentation size</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>Fragmentation size</li>
+              <li>Live data</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>Fragmentation size</li>
+              <li>Live data</li>
+              <li>Multi-index searches</li>
+            </ul>
+          </section>
           <aside class="notes">         
           </aside>
         </section>
 
         <section>
-          <h3>Where do we go from here</h3>
-          <ul>
-            <li>Expand to other search spaces such as geographical tiling</li>
-            <li>Explore fuzzy matching</li>
-          </ul>
+          <h3>Future vision</h3>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>Expand to other search spaces such as geographical tiling</li>
+            </ul>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li>Expand to other search spaces such as geographical tiling</li>
+              <li>Explore additional functionality such as fuzzy matching</li>
+            </ul>
+            </ul>
+          </section>
           <aside class="notes">         
           </aside>
         </section>
-
+        
+        <section>
+          <h3>Thank you for your attention</h3>
+        </section>
 
 
       </div>
@@ -392,7 +601,7 @@
       Reveal.initialize({
         hash: true,
         autoAnimateEasing: 'ease-out',
-        autoAnimateDuration: 0.8,
+        autoAnimateDuration: 0.6,
         autoAnimateUnmatched: true,
 
         // Learn about plugins: https://revealjs.com/plugins/
