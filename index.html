@@ -290,9 +290,9 @@
               {
                 "@context":"https://w3id.org/tree#",
                 "@id":"#Dataset",
-                "@type":"tree:Collection",
+                "@type":"Collection",
                 ...
-                "tree:member":[...]
+                "member":[...]
               }
               </code></pre>
               <p>Dataset entities are members of the collection</p>
@@ -302,7 +302,7 @@
               {
                 "@context":"https://w3id.org/tree#",
                 "@id":"#Dataset",
-                "@type":"tree:Collection",
+                "@type":"Collection",
                 "view":{
                   "@id":"/fragments/root#node",
                 },
@@ -316,12 +316,12 @@
               {
                 "@context":"https://w3id.org/tree#",
                 "@id":"#node",
-                "tree:relation":[
+                "relation":[
                   {
-                    "@type":"tree:GreaterThanRelation",
-                    "tree:path":"foaf:name",
-                    "tree:value":"Alice",
-                    "tree:node":"/fragments/2#node",
+                    "@type":"GreaterThanRelation",
+                    "path":"foaf:name",
+                    "value":"Alice",
+                    "node":"/fragments/2#node",
                   },
                   ...
                 ]
@@ -349,8 +349,8 @@
           <h3>A generic client</h3>
           <p>Query on <em>firstName</em> property for prefix <em>Carol</em></p>
           <section data-auto-animate>
-            </br>
-            <div style="height: 45vh" class="row">
+            </br></br>
+            <div style="height: 55vh" class="row">
               <div class="column">
                 <ol>
                   <li>Discover fragmentations</li>
@@ -387,8 +387,8 @@
             </div>
           </section>
           <section data-auto-animate>
-            </br>
-            <div style="height: 45vh" class="row">
+            </br></br>  
+            <div style="height: 55vh" class="row">
               <div class="column">
                 <ol>
                   <li>Discover fragmentations</li>
@@ -396,19 +396,21 @@
                 </ol>
               </div>
               <div class="column">
-                <div class="clientBlock">
-                  <div class="row">
-                    queue
-                  </div>
-                  <div class="row">
-                    <div class="column" data-id="fnameroot">
-                      <div class="clientBlock">
-                        /fName/root
-                      </div>
+                <div class="row">
+                  <div class="clientBlock">
+                    <div class="row" data-id="queue">
+                      queue
                     </div>
-                    <div class="column" data-id="lnameroot">
-                      <div class="clientBlock">
-                        /lName/root
+                    <div class="row">
+                      <div class="column" data-id="fnameroot">
+                        <div class="clientBlock">
+                          /fName/root
+                        </div>
+                      </div>
+                      <div class="column" data-id="lnameroot">
+                        <div class="clientBlock">
+                          /lName/root
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -417,8 +419,8 @@
             </div>
           </section>
           <section data-auto-animate>
-            </br>
-            <div style="height: 45vh" class="row">
+            </br></br>
+            <div style="height: 55vh" class="row">
               <div class="column">
                 <ol>
                   <li>Discover fragmentations</li>
@@ -428,12 +430,36 @@
                 </ol>
               </div>
               <div class="column">
+                <div class="row">
+                  <div class="clientBlock">
+                    <div class="row" data-id="queue">
+                      queue
+                    </div>
+                    <div class="row">
+                      <div class="column" data-id="lnameroot">
+                        <div class="clientBlock">
+                          /lName/root
+                        </div>
+                      </div>
+                      <div class="column">
+                        <div class="clientBlock" style="border: none;">
+                          <!-- placeholder -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" data-id="fnameroot">
+                  <div class="clientBlock">
+                    /fName/root
+                  </div>
+                </div>
               </div>
             </div>
           </section>
           <section data-auto-animate>
-            </br>
-            <div style="height: 45vh" class="row">
+            </br></br>
+            <div style="height: 55vh" class="row">
               <div class="column">
                 <ol>
                   <li>Discover fragmentations</li>
@@ -441,14 +467,168 @@
                   <b data-id="repeat">Repeat</b>
                   <li>pop node from queue</li>
                   <li>yield matching members</li>
-                  <li>try to prune relations</li>
-                  <li>add relations to queue</li>
                 </ol>
               </div>
               <div class="column">
+                <div class="row">
+                  <div class="clientBlock">
+                    <div class="row" data-id="queue">
+                      queue
+                    </div>
+                    <div class="row">
+                      <div class="column" data-id="lnameroot">
+                        <div class="clientBlock">
+                          /lName/root
+                        </div>
+                      </div>
+                      <div class="column">
+                        <div class="clientBlock" style="border: none;">
+                          <!-- placeholder -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" data-id="fnameroot">
+                  <div class="clientBlock">
+                    /fName/root
+                    <pre><code data-trim data-noescape data-line-numbers="4-7" style="font-size: small; line-height:1.3em;">	
+                      {
+                        "@context":"https://w3id.org/tree#",
+                        "@id":"/fname/root",
+                        "dct:isPartOf": {
+                          "@id": "/collection"
+                          "member": []
+                        }
+                        ...
+                      }
+                    </code></pre>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
+          <section data-auto-animate>
+            </br></br>
+            <div style="height: 55vh" class="row">
+              <div class="column">
+                <ol>
+                  <li>Discover fragmentations</li>
+                  <li>Add root nodes to queue</li>
+                  <b data-id="repeat">Repeat</b>
+                  <li>pop node from queue</li>
+                  <li>yield matching members</li>
+                  <li>
+                    try to prune relations
+                  </li>
+                </ol>
+                <ol>
+                  <p style="font-size: smaller;">Does the relation path match the queried <em>firstName</em> property?</p>
+                  <p style="font-size: smaller;">Is <em>Carol</em> greater than <em>Alice</em>?</p>
+                </ol>
+                
+              </div>
+              <div class="column">
+                <div class="row">
+                  <div class="clientBlock">
+                    <div class="row" data-id="queue">
+                      queue
+                    </div>
+                    <div class="row">
+                      <div class="column" data-id="lnameroot">
+                        <div class="clientBlock">
+                          /lName/root
+                        </div>
+                      </div>
+                      <div class="column">
+                        <div class="clientBlock" style="border: none;">
+                          <!-- placeholder -->
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row" data-id="fnameroot">
+                  <div class="clientBlock">
+                    /fName/root
+                    <pre><code data-trim data-noescape data-line-numbers="5-13" style="font-size: small; line-height:1.3em;">	
+                      {
+                        "@context":"https://w3id.org/tree#",
+                        "@id":"/fname/root",
+                        "dct:isPartOf": ...
+                        "relation":[
+                          {
+                            "@type":"GreaterThanRelation",
+                            "path":"foaf:name",
+                            "value":"Alice",
+                            "node":"/fname/gtAlice",
+                          },
+                          ...
+                        ]
+                      }
+                    </code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section><section data-auto-animate>
+          </br></br>
+          <div style="height: 55vh" class="row">
+            <div class="column">
+              <ol>
+                <li>Discover fragmentations</li>
+                <li>Add root nodes to queue</li>
+                <b data-id="repeat">Repeat</b>
+                <li>pop node from queue</li>
+                <li>yield matching members</li>
+                <li>try to prune relations</li>
+                <li>add relations to queue</li>
+              </ol>
+            </div>
+            <div class="column">
+              <div class="row">
+                <div class="clientBlock">
+                  <div class="row" data-id="queue">
+                    queue
+                  </div>
+                  <div class="row">
+                    <div class="column" data-id="lnameroot">
+                      <div class="clientBlock">
+                        /lName/root
+                      </div>
+                    </div>
+                    <div class="column">
+                      <div class="clientBlock" style="border-width: 1px;">
+                        <b>/fname/gtAlice</b>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row" data-id="fnameroot">
+                <div class="clientBlock">
+                  /fName/root
+                  <pre><code data-trim data-noescape data-line-numbers="10" style="font-size: small; line-height:1.3em;">	
+                    {
+                      "@context":"https://w3id.org/tree#",
+                      "@id":"/fname/root",
+                      "dct:isPartOf": ...
+                      "relation":[
+                        {
+                          "@type":"GreaterThanRelation",
+                          "path":"foaf:name",
+                          "value":"Alice",
+                          "node":"/fname/gtAlice",
+                        },
+                        ...
+                      ]
+                    }
+                  </code></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         </section>
 
         <section>
