@@ -666,9 +666,31 @@
         </section>
 
         <section>
+          <h3>Query series</h3>
+          <p>Prefix queries are often processed in series</p>
+          <section data-auto-animate>
+            <div data-id='animated'>S</div>
+          </section>
+          <section data-auto-animate>
+            <div data-id='animated'>S → St</div>
+          </section>
+          <section data-auto-animate>
+            <div data-id='animated'>S → St → Stre</div>
+          </section>
+          <section data-auto-animate>
+            <div data-id='animated'>S → St → Stre → Street</div>
+          </section>
+          <section data-auto-animate>
+            <div data-id='animated'>S → St → Stre → Street → Streetname </div>
+            <p>We evaluate on series of prefix autocompletion queries</p>
+          </section>
+        </section>
+
+        <section>
           <h3>Server cache</h3>
-          <p>transport stops</p>
+          <p>server cache hit rate for transport stops queries</p>
           <section>
+            </br>
             <img src="dist/assets/servercachehitratio.svg" alt="image">
           </section>
           <aside class="notes">         
@@ -680,7 +702,7 @@
           <section>
             </br>
             <div>
-              <p>percentage of useful results</p>
+              <p>percentage of useful results for transport stops queries</p>
               <img style="height: 50vh" src="dist/assets/efficiency.svg" alt="image">
             </div>
             <aside class="notes">         
@@ -689,7 +711,7 @@
           <section>
             </br>
             <div>
-              <p>bandwidth - stops</p>
+              <p>bandwidth usage for transport stops queries</p>
               <img style="height: 50vh" src="dist/assets/bandwidthandrequests2.svg" alt="image">
             </div>
             <aside class="notes">         
@@ -702,7 +724,7 @@
           <section>
             </br>
             <div>
-              <p>Belgium transport stops</p>
+              <p style="font-size: smaller;"># results retrieved for the first three queries in a series of prefix requests over the transport stops dataset</p>
               <img src="dist/assets/stops_query_comparison.svg" alt="image">
             </div>
             <aside class="notes">         
@@ -711,7 +733,7 @@
           <section>
             </br>
             <div>
-              <p>OSMNames</p>
+              <p style="font-size: smaller;"># results retrieved for the first three queries in a series of randomly generated prefix requests over the OSMNames dataset</p>
               <img src="dist/assets/osm_query_comparison.svg" alt="image">
             </div>
             <aside class="notes">         
@@ -724,7 +746,7 @@
           <section>
             </br>
             <div>
-              <p>Belgium transport stops</p>
+              <p style="font-size: smaller;">Query performance per fragment size over the smaller</br>transport stops dataset</p>
               <img src="dist/assets/stopsfragmentsize.svg" alt="image">
               <img src="dist/assets/legend_background.png"image">
             </div>
@@ -734,7 +756,7 @@
           <section>
             <div>
               </br>
-              <p>OSMNames</p>
+              <p style="font-size: smaller;">Query performance per fragment size over the larger</br>OSMNames dataset</p>
               <img src="dist/assets/osmNamesfragmentsize.svg" alt="image">
               <img src="dist/assets/legend_background.png"image">
             </div>
@@ -863,7 +885,7 @@
 
         <section>
           <h3>Try it yourself</h3> 
-          <p>Query 4 datasets simultaneously</p>         
+          <p>Query 4 datasets simultaneously!</p>         
           <section style="height: 50vh;">
             <iframe style="width: 100%; height: 100%;" src="https://treecg.github.io/treemunica_typeahead_demo/" title="A practical demonstration"></iframe>
           </section>
