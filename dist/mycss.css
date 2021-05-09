@@ -11,3 +11,35 @@
 .linegative::before {content: "✘"; color: black;
   display: inline-block; width: 1em;
   margin-left: -1em}
+
+.clientBlock {
+  background-color: lightgray;
+  border: 1px solid black;
+  text-align: left;
+  padding: 5px;
+  margin: 5px;
+  width: 90%;
+}
+.clientBlockEntry {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: rgb(243, 109, 109);
+  border: 1px solid black;
+  text-align: left;
+  padding: 5px;
+  margin: 5px;
+}
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex: 50%;
+  font-size: smaller;
+}
+
+.center {
+  align-items: center;
+  justify-content: center;
+}

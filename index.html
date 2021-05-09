@@ -46,7 +46,7 @@
         </section>
 
         <section>
-          <h3>What are your options</h3>
+          <h3>What are the options</h3>
           <section>
             <div>
               </br>
@@ -171,6 +171,13 @@
               <li>a generic client</li>
             </ul>
           </section>
+          <section data-auto-animate>
+            <ul style="width: 70vw">
+              <li style="color: red">a dataset index</li>
+              <li>a self-describing fragmentation</li>
+              <li>a generic client</li>
+            </ul>
+          </section>
           <aside class="notes">         
           </aside>
         </section>
@@ -181,7 +188,7 @@
           <section>
             <div>
               </br>
-              <p>what properties</p>
+              <p>what data properties</p>
               <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="|3,6-7">
                 {
                   "@type":"Person",
@@ -200,15 +207,17 @@
             <div>
               </br>
               <div>
-              <p>what data structure</p>
-              <img data-id="tree-animation" style="height: 45vh" src="dist/assets/tree_0.svg" alt="image">
+              <p data-id="toptext">what data structure</p>
+              <div style="height: 45vh">
+                <img data-id="tree-animation" style="height: 45vh" src="dist/assets/tree_0.svg" alt="image">
+              </div>
             </div>
             </div>
           </section>
           <section data-auto-animate>
             <div>
               </br>
-              <p>balanced search trees</p>
+              <p data-id="toptext">balanced search trees</p>
               <div style="height: 45vh">
                 <div style="width: 35%; float: left;">
                   <ul>
@@ -257,6 +266,17 @@
         </section>
 
         <section>
+          <h3>What do we need</h3>
+          <section>
+            <ul style="width: 70vw">
+              <li>a dataset index</li>
+              <li style="color: red">a self-describing fragmentation</li>
+              <li>a generic client</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
           <h3>A self-describing fragmentation</h3>
           <section data-auto-animate>
             <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="2">
@@ -283,10 +303,10 @@
                 "@context":"https://w3id.org/tree#",
                 "@id":"#Dataset",
                 "@type":"tree:Collection",
-                "tree:view":{
-                  "@id":"/fragments/root.jsonld#node",
+                "view":{
+                  "@id":"/fragments/root#node",
                 },
-                "tree:member":[...]
+                "member":[...]
               }
               </code></pre>
               <p>We discover the root through the view property</p>
@@ -301,7 +321,7 @@
                     "@type":"tree:GreaterThanRelation",
                     "tree:path":"foaf:name",
                     "tree:value":"Alice",
-                    "tree:node":"/fragments/2.jsonld#node",
+                    "tree:node":"/fragments/2#node",
                   },
                   ...
                 ]
@@ -315,83 +335,120 @@
         </section>
 
         <section>
+          <h3>What do we need</h3>
+          <section>
+            <ul style="width: 70vw">
+              <li>a dataset index</li>
+              <li>a self-describing fragmentation</li>
+              <li style="color: red">a generic client</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
           <h3>A generic client</h3>
-          <p>This is still WIP, am going to use images here</p>
+          <p>Query on <em>firstName</em> property for prefix <em>Carol</em></p>
           <section data-auto-animate>
-            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="">
-              // A prefix search algorithm given 
-              // a node id, a prefix value and a property path
-              prefixSearch(nodeId, prefix, path?) {
-                // Request a fragment over HTTP
-                fragment = fetch(nodeId)
-                // Extract hypermedia controls and dataset members
-                members, nodes, relations = extractMetadata(fragment)
-              }            
-              </code></pre>
+            </br>
+            <div style="height: 45vh" class="row">
+              <div class="column">
+                <ol>
+                  <li>Discover fragmentations</li>
+                </ol>
+              </div>
+              <div class="column">
+                <div class="row center">
+                  <div class="clientBlock">
+                    /collection
+                    <pre><code data-trim data-noescape data-line-numbers="4-5">
+                        {
+                          "@id": "/collection"
+                          "view": [
+                            "/fname/root#node",
+                            "/lname/root#node"
+                          ]
+                        }
+                    </code></pre>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="column" data-id="fnameroot">
+                    <div class="clientBlock">
+                      /fName/root
+                    </div>
+                  </div>
+                  <div class="column" data-id="lnameroot">
+                    <div class="clientBlock">
+                      /lName/root
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
           <section data-auto-animate>
-            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers=""> 
-              // A prefix search algorithm given 
-              // a node id, a prefix value and a property path
-              prefixSearch(nodeId, prefix, path?) {
-                // Request a fragment over HTTP
-                fragment = fetch(nodeId)
-                // Extract hypermedia controls and dataset members
-                members, nodes, relations = extractMetadata(fragment)
-                // Emit the found dataset entities matching
-                // the given prefix value for the given property path
-                emit(match(members, prefix, path))
-                // Group relations per child node
-                groupedRelations = group(relations)
-                for (group of groupedRelations) {
-                  // Check if relation 
-                  for (relation of group) {
-                    if canPrune(relation, prefix, path)
-
-                  }
-                }
-
-                for (relationgroup of groupPerChildNode(relations)) {
-                  //$\textcolor{olivegreen}{\chi}$ is based on the relation type
-                  relation = relationgroup.next()
-                  $\chi$ = buildFunction(relation.type)
-                  while (relation && matchPath(relation.path, path) && $\chi$(prefix, relation.value)) {
-                    relation = relationgroup.next()
-                    $\chi$ = buildFunction(relation.type)
-                  }
-                  if (!relation)
-                    prefixSearch(relation.node, prefix, path)|\label{recurse}|
-                }
-              }     
-              </code></pre>
+            </br>
+            <div style="height: 45vh" class="row">
+              <div class="column">
+                <ol>
+                  <li>Discover fragmentations</li>
+                  <li>Add root nodes to queue</li>
+                </ol>
+              </div>
+              <div class="column">
+                <div class="clientBlock">
+                  <div class="row">
+                    queue
+                  </div>
+                  <div class="row">
+                    <div class="column" data-id="fnameroot">
+                      <div class="clientBlock">
+                        /fName/root
+                      </div>
+                    </div>
+                    <div class="column" data-id="lnameroot">
+                      <div class="clientBlock">
+                        /lName/root
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </section>
           <section data-auto-animate>
-            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers=""> 
-              // A prefix search algorithm given 
-              // a node id, a prefix value and a property path
-              prefixSearch(nodeId, prefix, path?) {
-                // Request a fragment over HTTP
-                fragment = fetch(nodeId)
-                // Extract hypermedia controls and dataset members
-                members, nodes, relations = extractMetadata(fragment)
-                emit(match(members, prefix, path))
-                //Group available relations per child node
-                for (relationgroup of groupPerChildNode(relations)) {
-                  //$\textcolor{olivegreen}{\chi}$ is based on the relation type
-                  relation = relationgroup.next()
-                  $\chi$ = buildFunction(relation.type)
-                  while (relation && matchPath(relation.path, path) && $\chi$(prefix, relation.value)) {
-                    relation = relationgroup.next()
-                    $\chi$ = buildFunction(relation.type)
-                  }
-                  if (!relation)
-                    prefixSearch(relation.node, prefix, path)|\label{recurse}|
-                }
-              }     
-              </code></pre>
+            </br>
+            <div style="height: 45vh" class="row">
+              <div class="column">
+                <ol>
+                  <li>Discover fragmentations</li>
+                  <li>Add root nodes to queue</li>
+                  <b data-id="repeat">Repeat</b>
+                  <li>pop node from queue</li>
+                </ol>
+              </div>
+              <div class="column">
+              </div>
+            </div>
           </section>
-          <aside class="notes">         
-          </aside>
+          <section data-auto-animate>
+            </br>
+            <div style="height: 45vh" class="row">
+              <div class="column">
+                <ol>
+                  <li>Discover fragmentations</li>
+                  <li>Add root nodes to queue</li>
+                  <b data-id="repeat">Repeat</b>
+                  <li>pop node from queue</li>
+                  <li>yield matching members</li>
+                  <li>try to prune relations</li>
+                  <li>add relations to queue</li>
+                </ol>
+              </div>
+              <div class="column">
+              </div>
+            </div>
+          </section>
         </section>
 
         <section>
@@ -636,6 +693,8 @@
           <h3>Thank you for your attention</h3>
           <p>For more information and further developments,</br> come find us at</p>
           <a href="https://tree.linkeddatafragments.org/">https://tree.linkeddatafragments.org/</a>
+          <p>or send me an email at</p>
+          <p><b>Ruben.Dedecker@UGent.be</b></p>
         </section>
 
 
