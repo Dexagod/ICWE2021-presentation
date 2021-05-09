@@ -2,3 +2,12 @@
   display: grid;
   grid-gap: 5px;
 }
+
+.lipositive::before {content: "✔"; color: black;
+  display: inline-block; width: 1em;
+  margin-left: -1em}
+
+
+.linegative::before {content: "✘"; color: black;
+  display: inline-block; width: 1em;
+  margin-left: -1em}
