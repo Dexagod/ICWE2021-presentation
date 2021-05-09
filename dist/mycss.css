@@ -43,3 +43,8 @@
   align-items: center;
   justify-content: center;
 }
+
+.clientAlgContent {
+  margin-top: 15vh; 
+  height: 70vh
+}

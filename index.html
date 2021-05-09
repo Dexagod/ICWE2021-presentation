@@ -349,8 +349,8 @@
           <h3>A generic client</h3>
           <p>Query on <em>firstName</em> property for prefix <em>Carol</em></p>
           <section data-auto-animate>
-            </br></br>
-            <div style="height: 55vh" class="row">
+            
+            <div class="row clientAlgContent">
               <div class="column">
                 <ol>
                   <li>Discover fragmentations</li>
@@ -387,8 +387,8 @@
             </div>
           </section>
           <section data-auto-animate>
-            </br></br>  
-            <div style="height: 55vh" class="row">
+              
+            <div class="row clientAlgContent">
               <div class="column">
                 <ol>
                   <li>Discover fragmentations</li>
@@ -419,8 +419,8 @@
             </div>
           </section>
           <section data-auto-animate>
-            </br></br>
-            <div style="height: 55vh" class="row">
+            
+            <div class="row clientAlgContent">
               <div class="column">
                 <ol>
                   <li>Discover fragmentations</li>
@@ -458,8 +458,8 @@
             </div>
           </section>
           <section data-auto-animate>
-            </br></br>
-            <div style="height: 55vh" class="row">
+            
+            <div class="row clientAlgContent">
               <div class="column">
                 <ol>
                   <li>Discover fragmentations</li>
@@ -509,8 +509,8 @@
             </div>
           </section>
           <section data-auto-animate>
-            </br></br>
-            <div style="height: 55vh" class="row">
+            
+            <div class="row clientAlgContent">
               <div class="column">
                 <ol>
                   <li>Discover fragmentations</li>
@@ -571,64 +571,65 @@
                 </div>
               </div>
             </div>
-          </section><section data-auto-animate>
-          </br></br>
-          <div style="height: 55vh" class="row">
-            <div class="column">
-              <ol>
-                <li>Discover fragmentations</li>
-                <li>Add root nodes to queue</li>
-                <b data-id="repeat">Repeat</b>
-                <li>pop node from queue</li>
-                <li>yield matching members</li>
-                <li>try to prune relations</li>
-                <li>add relations to queue</li>
-              </ol>
-            </div>
-            <div class="column">
-              <div class="row">
-                <div class="clientBlock">
-                  <div class="row" data-id="queue">
-                    queue
-                  </div>
-                  <div class="row">
-                    <div class="column" data-id="lnameroot">
-                      <div class="clientBlock">
-                        /lName/root
-                      </div>
+          </section>
+          <section data-auto-animate>
+            
+            <div class="row clientAlgContent">
+              <div class="column">
+                <ol>
+                  <li>Discover fragmentations</li>
+                  <li>Add root nodes to queue</li>
+                  <b data-id="repeat">Repeat</b>
+                  <li>pop node from queue</li>
+                  <li>yield matching members</li>
+                  <li>try to prune relations</li>
+                  <li>add relations to queue</li>
+                </ol>
+              </div>
+              <div class="column">
+                <div class="row">
+                  <div class="clientBlock">
+                    <div class="row" data-id="queue">
+                      queue
                     </div>
-                    <div class="column">
-                      <div class="clientBlock" style="border-width: 1px;">
-                        <b>/fname/gtAlice</b>
+                    <div class="row">
+                      <div class="column" data-id="lnameroot">
+                        <div class="clientBlock">
+                          /lName/root
+                        </div>
+                      </div>
+                      <div class="column">
+                        <div class="clientBlock" style="border-width: 1px;">
+                          <b>/fname/gtAlice</b>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div class="row" data-id="fnameroot">
-                <div class="clientBlock">
-                  /fName/root
-                  <pre><code data-trim data-noescape data-line-numbers="10" style="font-size: small; line-height:1.3em;">	
-                    {
-                      "@context":"https://w3id.org/tree#",
-                      "@id":"/fname/root",
-                      "dct:isPartOf": ...
-                      "relation":[
-                        {
-                          "@type":"GreaterThanRelation",
-                          "path":"foaf:name",
-                          "value":"Alice",
-                          "node":"/fname/gtAlice",
-                        },
-                        ...
-                      ]
-                    }
-                  </code></pre>
+                <div class="row" data-id="fnameroot">
+                  <div class="clientBlock">
+                    /fName/root
+                    <pre><code data-trim data-noescape data-line-numbers="10" style="font-size: small; line-height:1.3em;">	
+                      {
+                        "@context":"https://w3id.org/tree#",
+                        "@id":"/fname/root",
+                        "dct:isPartOf": ...
+                        "relation":[
+                          {
+                            "@type":"GreaterThanRelation",
+                            "path":"foaf:name",
+                            "value":"Alice",
+                            "node":"/fname/gtAlice",
+                          },
+                          ...
+                        ]
+                      }
+                    </code></pre>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
         </section>
 
         <section>
