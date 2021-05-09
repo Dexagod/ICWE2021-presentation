@@ -304,7 +304,7 @@
                 "@id":"#Dataset",
                 "@type":"Collection",
                 "view":{
-                  "@id":"/fragments/root#node",
+                  "@id":"/fragments/root",
                 },
                 "member":[...]
               }
@@ -312,24 +312,40 @@
               <p>We discover the root through the view property</p>
           </section>
           <section data-auto-animate>
-            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="3-16">
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="4-7">
               {
                 "@context":"https://w3id.org/tree#",
-                "@id":"#node",
+                "@id":"/fragments/root",
+                "dct:isPartOf": {
+                  "@id": "/collection"
+                  "member": [...]
+                },
+                "relation":[
+                  ...
+                ]
+              }
+              </code></pre>
+              <p>Dataset entities are members of the collection</p>
+          </section>       
+          <section data-auto-animate>
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="7-15">
+              {
+                "@context":"https://w3id.org/tree#",
+                "@id":"/fragments/root",
+                "dct:isPartOf": { ... },
                 "relation":[
                   {
                     "@type":"GreaterThanRelation",
                     "path":"foaf:name",
                     "value":"Alice",
-                    "node":"/fragments/2#node",
+                    "node":"/fragments/gtAlice",
                   },
                   ...
                 ]
               }
               </code></pre>
-              <p>This relation leads to entities of the dataset with a <em>foaf:name</em> property greater than <em>Alice</em></p>
-          </section>
-          
+              <p style="font-size: smaller;">This relation leads to a fragment containing entities of the dataset with a <em>foaf:name</em> property greater than <em>Alice</em></p>
+          </section>             
           <aside class="notes">         
           </aside>
         </section>
@@ -353,12 +369,36 @@
             <div class="row clientAlgContent">
               <div class="column">
                 <ol>
+                </ol>
+              </div>
+              <div class="column">
+                <div class="row center">
+                  <div class="clientBlock" data-id="collectionBlock">
+                    /collection
+                    <pre><code data-trim data-noescape data-line-numbers>
+                        {
+                          "@id": "/collection"
+                          "view": [
+                            "/fname/root#node",
+                            "/lname/root#node"
+                          ]
+                        }
+                    </code></pre>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <div class="row clientAlgContent">
+              <div class="column">
+                <ol>
                   <li>Discover fragmentations</li>
                 </ol>
               </div>
               <div class="column">
                 <div class="row center">
-                  <div class="clientBlock">
+                  <div class="clientBlock" data-id="collectionBlock">
                     /collection
                     <pre><code data-trim data-noescape data-line-numbers="4-5">
                         {
@@ -387,7 +427,6 @@
             </div>
           </section>
           <section data-auto-animate>
-              
             <div class="row clientAlgContent">
               <div class="column">
                 <ol>
