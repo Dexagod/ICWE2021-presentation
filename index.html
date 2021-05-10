@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport"content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <title>ICWE 2021 - A File Based Approach to Prefix Search</title>
+    <title>ICWE 2021 - A file-based Approach to Prefix Search</title>
 
     <link rel="stylesheet"href="dist/reset.css">
     <link rel="stylesheet"href="dist/reveal.css">
@@ -27,7 +27,7 @@
             I am Ruben Dedecker from the IDLab research group at Ghent University.
             Within our research group, we do research on Linked Open Data Interfaces.
             With this work, we come to present our work on engineering how to enable functionality such as prefix search 
-            on published datasets using a file based linked data fragments approach.            
+            on published datasets using a file-based linked data fragments approach.            
           </aside>
         </section>
 
@@ -73,10 +73,10 @@
         </section>
 
         <section>
+          <h3>What about fragmentation?</h3>
           <section>
             <div>
-              <h3>What about fragmentation?</h3>
-              <p>Can we find a middle ground?</p>
+              <p>Can dataset fragmentation provide a middle ground?</p>
               <img style="height: 50vh" src="dist/assets/our_approach2.png" alt="image">
             </div>
             <aside class="notes">         
@@ -275,14 +275,29 @@
         <section>
           <h3>A self-describing fragmentation</h3>
           <section data-auto-animate>
-            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="2">
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers>
               {
-                "@context":"https://w3id.org/tree#",
+                "@id":"#Dataset",
+                "@type":"Collection",
+                ...
+                "member":[
+                  {
+                    "@id": "/people/RubenD",
+                    "fName": "Ruben",
+                    "lName": "Dedecker",
+                  },
+                  {
+                    "@id": "/people/PieterC",
+                    "fName": "Pieter",
+                    "lName": "Colpaert",
+                  }
+                ]
               }
-              </code></pre>
+            </code></pre>
+            <p>Dataset entities are members of the collection</p>
           </section>
           <section data-auto-animate>
-            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="3-4,6">
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="2">
               {
                 "@context":"https://w3id.org/tree#",
                 "@id":"#Dataset",
@@ -291,7 +306,7 @@
                 "member":[...]
               }
               </code></pre>
-              <p>Dataset entities are members of the collection</p>
+              <p>We need to define the relations between our fragments</p>
           </section>
           <section data-auto-animate>
             <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="5-7">
@@ -308,7 +323,7 @@
               <p>We discover the root through the view property</p>
           </section>
           <section data-auto-animate>
-            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="4-7">
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="3-7">
               {
                 "@context":"https://w3id.org/tree#",
                 "@id":"/fragments/root",
@@ -324,7 +339,7 @@
               <p>Dataset entities are members of the collection</p>
           </section>       
           <section data-auto-animate>
-            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="7-15">
+            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="3,5-13">
               {
                 "@context":"https://w3id.org/tree#",
                 "@id":"/fragments/root",
@@ -706,212 +721,192 @@
         </section>
 
         <section>
-          <h3>Query series</h3>
-          <p>Prefix queries are often processed in series</p>
           <section data-auto-animate>
-            <div data-id='animated'>S</div>
+            <p>Prefix queries are often processed in series</p>
+            <div class="row">
+              <div class="column" style="border: 1px solid black; margin:15%; text-align: left;">
+                <div data-id='animated' style="margin-left: 1em;">S</div>
+              </div>
+            </div>
           </section>
           <section data-auto-animate>
-            <div data-id='animated'>S → St</div>
+            <p>Prefix queries are often processed in series</p>
+            <div class="row">
+              <div class="column" style="border: 1px solid black; margin:15%; text-align: left;">
+                <div data-id='animated' style="margin-left: 1em;">S → St</div>
+              </div>
+            </div>
           </section>
           <section data-auto-animate>
-            <div data-id='animated'>S → St → Stre</div>
+            <p>Prefix queries are often processed in series</p>
+            <div class="row">
+              <div class="column" style="border: 1px solid black; margin:15%; text-align: left;">
+                <div data-id='animated' style="margin-left: 1em;">S → St → Stre</div>
+              </div>
+            </div>
           </section>
           <section data-auto-animate>
-            <div data-id='animated'>S → St → Stre → Street</div>
+            <p>Prefix queries are often processed in series</p>
+            <div class="row">
+              <div class="column" style="border: 1px solid black; margin:15%; text-align: left;">
+                <div data-id='animated' style="margin-left: 1em;">S → St → Stre → Street</div>
+              </div>
+            </div>
           </section>
           <section data-auto-animate>
-            <div data-id='animated'>S → St → Stre → Street → Streetname </div>
-            <p>We evaluate on series of prefix autocompletion queries</p>
+            <p>Prefix queries are often processed in series</p>
+            <div class="row">
+              <div class="column" style="border: 1px solid black; margin:15%; text-align: left;">
+                <div data-id='animated' style="margin-left: 1em;">S → St → Stre → Street → Streetname </div>
+              </div>
+            </div>
+          </section>
+          <section data-auto-animate>
+            <p>Prefix queries are often processed in series</p>
+            <div class="row">
+              <div class="column" style="border: 1px solid black; margin:15%; text-align: left;">
+                <div data-id='animated' style="margin-left: 1em;">S → St → Stre → Street → Streetname </div>
+              </div>
+            </div>
+            <p style="font-size: smaller;">We evaluate on series of prefix autocompletion queries</p>
           </section>
         </section>
 
         <section>
-          <h3>Server cache</h3>
           <p>server cache hit rate for transport stops queries</p>
-          <section>
-            </br>
-            <img src="dist/assets/servercachehitratio.svg" alt="image">
-          </section>
+          <img style="height: 40vh;" src="dist/assets/servercachehitratio.svg" alt="image">
+          <p style="font-size: 0.6em;">The baseline query server stagnates at around 20%, where our proposed
+            approach can serve more than half the requests from the server cache after an initial warmup period.</p>
           <aside class="notes">         
           </aside>
         </section>
 
         <section>
-          <h3>Efficiency & bandwidth</h3>
+          <div>
+            <p>percentage of useful results for transport stops queries</p>
+            <img style="height: 40vh" src="dist/assets/efficiency.svg" alt="image">
+            <p style="font-size: 0.5em;">
+              A large percentage of query series in the log result in no matches, or start from a nearly completed word.
+              These queries require a full traversal with few or no results, leading to bad efficiency.
+              For other requests we see the efficiency averages around 50%.
+            </p>
+          </div>
+          <aside class="notes">         
+            This also counts cached results!
+          </aside>
+        </section>
+
+        <section>
+          <div>
+            <p>bandwidth usage for transport stops queries</p>
+            <img style="height: 40vh" src="dist/assets/bandwidthandrequests2.svg" alt="image">
+          </div>
+          <p style="font-size: 0.5em;">
+            A series of prefix autocompletion requests results in a maximum bandwidth of 25kB over this fragmentation.
+            After an initial warmup of the client cache, less fragments need to be retrieved and the bandwidth requirement drops.
+          </p>
+          <aside class="notes">         
+            This drop in bandwidth can likely be attributed also to transport stops being a dataset that you will ofter request the same stops multiple times.
+          </aside>
+        </section>
+
+        <section>
           <section>
-            </br>
             <div>
-              <p>percentage of useful results for transport stops queries</p>
-              <img style="height: 50vh" src="dist/assets/efficiency.svg" alt="image">
+              <p style="font-size: smaller;"># results retrieved for the first three queries in a series of requests over the smaller transport stops dataset</p>
+              <img style="height: 40vh" src="dist/assets/stops_query_comparison.svg" alt="image">
             </div>
-            <aside class="notes">         
+            <p style="font-size: 0.5em;">
+              We see an average of 5 results that can be shown in the first 25 ms as a results of cached results from previous queries.
+              On average queries over this fragmentation can return around 15 results in a 150 ms interval.
+            </p>
+            <aside class="notes">  
+              later queries may not have the full 25 results available for the query, leading to a decrease in retrieved results       
             </aside>
           </section>
           <section>
-            </br>
             <div>
-              <p>bandwidth usage for transport stops queries</p>
-              <img style="height: 50vh" src="dist/assets/bandwidthandrequests2.svg" alt="image">
+              <p style="font-size: smaller;"># results retrieved for the first three queries in a series of randomly generated requests over the larger OSMNames dataset</p>
+              <img style="height: 40vh" src="dist/assets/osm_query_comparison.svg" alt="image">
             </div>
-            <aside class="notes">         
+            <p style="font-size: 0.5em;">
+              Randomized queries over a large dataset (3.87m entities) leads to a slower initial retrieval of results.
+              Subsequent queries can use cached fragments to provide around 15 results in the 150 ms interval.
+            </p>
+            <aside class="notes">    
+              - randomized queries do not start from the first letter!
+              - fragments themselves larger, as entities have more triples    
+              - deeper tree structure 
             </aside>
           </section>
         </section>
 
         <section>
-          <h3>Query performance</h3>
           <section>
-            </br>
-            <div>
-              <p style="font-size: smaller;"># results retrieved for the first three queries in a series of prefix requests over the transport stops dataset</p>
-              <img src="dist/assets/stops_query_comparison.svg" alt="image">
-            </div>
+            <p style="font-size: smaller;">Query performance per fragment size over the smaller</br>transport stops dataset</p>
+            <img style="height: 32vh; margin-bottom: 0em;" src="dist/assets/stopsfragmentsize.svg" alt="image">
+            <img style="margin-top: 0em;" src="dist/assets/legend_background.png"image">
+            <p style="font-size: 0.45em;">
+              Queries evaluated over the transport stops dataset (73k entities) can take advantage of larger fragment sizes because of the lower depth of the fragmentation structure.
+              Larger fragments provide more results in a single HTTP request.
+            </p>
             <aside class="notes">         
             </aside>
           </section>
           <section>
-            </br>
-            <div>
-              <p style="font-size: smaller;"># results retrieved for the first three queries in a series of randomly generated prefix requests over the OSMNames dataset</p>
-              <img src="dist/assets/osm_query_comparison.svg" alt="image">
-            </div>
-            <aside class="notes">         
-            </aside>
-          </section>
-        </section>
-
-        <section>
-          <h3>Fragment sizes</h3>
-          <section>
-            </br>
-            <div>
-              <p style="font-size: smaller;">Query performance per fragment size over the smaller</br>transport stops dataset</p>
-              <img src="dist/assets/stopsfragmentsize.svg" alt="image">
-              <img src="dist/assets/legend_background.png"image">
-            </div>
-            <aside class="notes">         
-            </aside>
-          </section>
-          <section>
-            <div>
-              </br>
-              <p style="font-size: smaller;">Query performance per fragment size over the larger</br>OSMNames dataset</p>
-              <img src="dist/assets/osmNamesfragmentsize.svg" alt="image">
-              <img src="dist/assets/legend_background.png"image">
-            </div>
-            <aside class="notes">         
+            <p style="font-size: smaller;">Query performance per fragment size over the larger</br>OSMNames dataset</p>
+            <img style="height: 32vh; margin-bottom: 0em;" src="dist/assets/osmNamesfragmentsize.svg" alt="image">
+            <img style="margin-top: 0em;" src="dist/assets/legend_background.png"image">
+            <p style="font-size: 0.45em;">
+              Queries evaluated over the OSMNames dataset (3.8m entities) struggle with larger fragment sizes as initial traversal becomes more expensive.
+              Smaller fragment sizes enable a faster descent in the fragmentation structure.     
+            </p>
+            <aside class="notes">  
             </aside>
           </section>
         </section>
 
         <section>
-          <h3>A comparison</h3>          
-          <section>
-            </br>
-            <p>A fragmented dataset of the address registry in Flanders</p>
-            <img style="height: 60vh" src="dist/assets/autocompletionCRAB.gif" alt="image">
-          </section>     
+          <p>Querying a fragmented dataset of the address registry in Flanders</p>
+          <img style="height: 50vh" src="dist/assets/autocompletionCRAB.gif" alt="image">
         </section>
         
         <section>
-          <h3>Findings</h3>
+          <h3>Did we succeed?</h3>
           <section data-auto-animate>
-            <ul style="width: 70vw; list-style-type: none;">
-              <li class="lipositive">user perceived performance</li>
-            </ul>
+            <p>
+              We provide a file-based approach to fragment a dataset and publish the fragments over the Web from static solutions such as github pages, 
+              that enables clients to evaluate prefix queries over the dataset with an acceptable user performance,
+              while giving full client control of the query evaluation process.
+            </p>
           </section>
           <section data-auto-animate>
-            <ul style="width: 70vw; list-style-type: none;">
-              <li class="lipositive">user perceived performance</li>
-              <li class="lipositive">fragment caching</li>
-            </ul>
+            <p>
+              We provide a <b style="color:red">file-based approach</b> to fragment a dataset and publish the fragments over the Web from static solutions such as github pages, 
+              that enables clients to <b style="color:red">evaluate prefix queries</b> over the dataset with an <b style="color:red">acceptable user performance</b>,
+              while giving full <b style="color:red">client control of the query evaluation process</b>.
+            </p>
           </section>
-          <section data-auto-animate>
-            <ul style="width: 70vw; list-style-type: none;">
-              <li class="lipositive">user perceived performance</li>
-              <li class="lipositive">fragment caching</li>
-              <li class="lipositive">client flexibility</li>
-            </ul>
-          </section>
-          <section data-auto-animate>
-            <ul style="width: 70vw; list-style-type: none;">
-              <li class="lipositive">user perceived performance</li>
-              <li class="lipositive">fragment caching</li>
-              <li class="lipositive">client flexibility</li>
-              <li class="lipositive">generalize to different search spaces</li>
-            </ul>
-          </section>
-          <section data-auto-animate>
-            <ul style="width: 70vw; list-style-type: none;">
-              <li class="lipositive">user perceived performance</li>
-              <li class="lipositive">fragment caching</li>
-              <li class="lipositive">client flexibility</li>
-              <li class="lipositive">generalize to different search spaces</li>
-              <li></br></li>
-              <li class="linegative">ideal fragment size</li>
-            </ul>
-          </section>
-          <section data-auto-animate>
-            <ul style="width: 70vw; list-style-type: none;">
-              <li class="lipositive">user perceived performance</li>
-              <li class="lipositive">fragment caching</li>
-              <li class="lipositive">client flexibility</li>
-              <li class="lipositive">generalize to different search spaces</li>
-              <li></br></li>
-              <li class="linegative">ideal fragment size</li>
-              <li class="linegative">live data</li>
-            </ul>
-          </section>
-          <section data-auto-animate>
-            <ul style="width: 70vw; list-style-type: none;">
-              <li class="lipositive">user perceived performance</li>
-              <li class="lipositive">fragment caching</li>
-              <li class="lipositive">client flexibility</li>
-              <li class="lipositive">generalize to different search spaces</li>
-              <li></br></li>
-              <li class="linegative">ideal fragment size</li>
-              <li class="linegative">live data</li>
-              <li class="linegative">data duplication</li>
-            </ul>
-          </section>
-          <section data-auto-animate>
-            <ul style="width: 70vw; list-style-type: none;">
-              <li class="lipositive">user perceived performance</li>
-              <li class="lipositive">fragment caching</li>
-              <li class="lipositive">client flexibility</li>
-              <li class="lipositive">generalize to different search spaces</li>
-              <li></br></li>
-              <li class="linegative">ideal fragment size</li>
-              <li class="linegative">live data</li>
-              <li class="linegative">data duplication</li>
-              <li class="linegative">JSON-LD</li>
-            </ul>
-          </section>
-          
         </section>
 
         <section>
           <h3>Where do we go from here</h3>
           <section data-auto-animate>
-            <ul style="width: 70vw">
+            <ul>
               <li>Expand to other search spaces such as geographical tiling</li>
-            </ul>
             </ul>
           </section>
           <section data-auto-animate>
-            <ul style="width: 70vw">
+            <ul>
               <li>Expand to other search spaces such as geographical tiling</li>
               <li>Explore additional functionality such as fuzzy matching</li>
-            </ul>
             </ul>
           </section>
           <section data-auto-animate>
-            <ul style="width: 70vw">
+            <ul>
               <li>Expand to other search spaces such as geographical tiling</li>
               <li>Explore additional functionality such as fuzzy matching</li>
-              <li>Explore support for live data</li>
-            </ul>
+              <li>The publishing of live data is discussed by my colleague at ICWE2021 in the talk <b><a href="https://docs.google.com/presentation/d/1uYzqhCV8M8XlgSZsw4GmNHPRPr-SEgWfa-xPJcZAV_Q/edit">Publishing base registries as Linked Data Event Streams</a></b></li>
             </ul>
           </section>
           <aside class="notes">         
