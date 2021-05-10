@@ -37,10 +37,6 @@
             </br>
             <img style="width: auto" src="dist/assets/intro_1.png" alt="image">
           </section>
-          <section>
-            </br>
-            <img style="height: 50vh" src="dist/assets/intro_google_maps.png" alt="image">
-          </section>
           <aside class="notes">         
           </aside>
         </section>
@@ -80,7 +76,7 @@
           <section>
             <div>
               <h3>What about fragmentation?</h3>
-              <p>Can we find a middle ground</p>
+              <p>Can we find a middle ground?</p>
               <img style="height: 50vh" src="dist/assets/our_approach2.png" alt="image">
             </div>
             <aside class="notes">         
@@ -464,8 +460,8 @@
                 <ol>
                   <li>Discover fragmentations</li>
                   <li>Add root nodes to queue</li>
-                  <b data-id="repeat">Repeat</b>
-                  <li>pop node from queue</li>
+                  <b data-id="repeat" style="margin-left: -1em;">-- Repeat</b>
+                  <li>fetch node from queue</li>
                 </ol>
               </div>
               <div class="column">
@@ -503,8 +499,8 @@
                 <ol>
                   <li>Discover fragmentations</li>
                   <li>Add root nodes to queue</li>
-                  <b data-id="repeat">Repeat</b>
-                  <li>pop node from queue</li>
+                  <b data-id="repeat" style="margin-left: -1em;">-- Repeat</b>
+                  <li>fetch node from queue</li>
                   <li>yield matching members</li>
                 </ol>
               </div>
@@ -554,8 +550,8 @@
                 <ol>
                   <li>Discover fragmentations</li>
                   <li>Add root nodes to queue</li>
-                  <b data-id="repeat">Repeat</b>
-                  <li>pop node from queue</li>
+                  <b data-id="repeat" style="margin-left: -1em;">-- Repeat</b>
+                  <li>fetch node from queue</li>
                   <li>yield matching members</li>
                   <li>
                     try to prune relations
@@ -618,11 +614,15 @@
                 <ol>
                   <li>Discover fragmentations</li>
                   <li>Add root nodes to queue</li>
-                  <b data-id="repeat">Repeat</b>
-                  <li>pop node from queue</li>
-                  <li>yield matching members</li>
-                  <li>try to prune relations</li>
-                  <li>add relations to queue</li>
+                  <li>
+                    Repeat
+                    <ol>
+                      <li>fetch node from queue</li>
+                      <li>yield matching members</li>
+                      <li>try to prune relations</li>
+                      <li>add relations to queue</li>
+                    </ol>
+                  </li>
                 </ol>
               </div>
               <div class="column">
@@ -809,14 +809,9 @@
           <h3>A comparison</h3>          
           <section>
             </br>
-            <p>A fragmented dataset of the flemish address registry</p>
+            <p>A fragmented dataset of the address registry in Flanders</p>
             <img style="height: 60vh" src="dist/assets/autocompletionCRAB.gif" alt="image">
           </section>     
-          <section>
-            </br>
-            <p>The Colruyt Collect&Go interface</p>
-            <img style="height: 60vh" src="dist/assets/colruyt.gif" alt="image">
-          </section>
         </section>
         
         <section>
