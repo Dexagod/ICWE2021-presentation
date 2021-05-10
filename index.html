@@ -23,11 +23,16 @@
           <p>Ruben Dedecker, Harm Delva, Pieter Colpaert, and Ruben Verborgh</p>
           <p>IDLab, Ghent University - imec</p>
           <aside class="notes">
-            Hello all and welcome to my presentation,
-            I am Ruben Dedecker from the IDLab research group at Ghent University.
-            Within our research group, we do research on Linked Open Data Interfaces.
-            With this work, we come to present our work on engineering how to enable functionality such as prefix search 
-            on published datasets using a file-based linked data fragments approach.            
+            <ul>
+              <li>Hello everyone, </li>
+              <li>My name is Ruben Dedecker from the IDLab research group at Ghent University.</li>
+              <li>This video is my presentation for the ICWE2021 conference.</li>
+              <li>I come to present our latest work on a file-based linked data fragments approach to prefix search.       </li>
+            </ul>
+            
+            
+            
+            
           </aside>
         </section>
 
@@ -36,9 +41,29 @@
           <section>
             </br>
             <img style="width: auto" src="dist/assets/intro_1.png" alt="image">
+            <aside class="notes">   
+              <ul>
+                <li>
+                  applications use available data collections on the Web.
+                </li>
+                <li>
+                  application does not require all available data.
+                </li>
+                <li>
+                  Only relevant for the user.
+                </li>
+                <li>
+                  One of the primary ways to extract this data is prefix search.
+                </li>
+                <li>
+                  If user is unsure, speedup queries on mobile.
+                </li>
+                <li>
+                  this example, user only wants transport stops relevant to their start / destination.
+                </li>
+              </ul>
+            </aside>
           </section>
-          <aside class="notes">         
-          </aside>
         </section>
 
         <section>
@@ -49,7 +74,14 @@
               <p>A server API</p>
               <img style="height: 50vh" src="dist/assets/approach_server.svg" alt="image">
             </div>
-            <aside class="notes">         
+            <aside class="notes">   
+              <ul>
+                <li>So how can we provide This</li>
+                <li>one way is to use a server API</li>
+                <li>server indexes data, exposes interface over web</li>
+                <li>client can make http requests for specific prefix</li>
+                <li>Server is responsible for querying process</li>
+              </ul>
             </aside>
           </section>
           <section>
@@ -58,7 +90,14 @@
               <p>A server API</p>
               <img style="margin: 0; padding: 0; height: 60vh" src="dist/assets/elasticsearch.png" alt="image">
             </div>
-            <aside class="notes">         
+            <aside class="notes">    
+              <ul>
+                <li>powerful open source tools available</li>
+                <li>setup cost, maintenance</li>
+                <li>needs active server environment, no github pages</li>
+                <li>can be expensive, require request throttling</li>
+
+              </ul>    
             </aside>
           </section>
           <section>
@@ -67,7 +106,13 @@
               <p>Rely on third parties</p>
               <img style="height: 50vh" src="dist/assets/approach_client.svg" alt="image">
             </div>
-            <aside class="notes">         
+            <aside class="notes">   
+              <ul>
+                <li>other option publish full dataset</li>
+                <li>rely on third party reusers to provide interface</li>
+                <li>client retrieve full dataset</li>
+                <li>low cost, can make use of static services like github pages</li>
+              </ul>      
             </aside>
           </section>
         </section>
@@ -75,11 +120,19 @@
         <section>
           <h3>What about fragmentation?</h3>
           <section>
+            </br>
             <div>
               <p>Can dataset fragmentation provide a middle ground?</p>
               <img style="height: 50vh" src="dist/assets/our_approach2.png" alt="image">
             </div>
-            <aside class="notes">         
+            <aside class="notes"> 
+              <ul>
+                <li>With this work, provide in between solution</li>
+                <li>able to publish to static services such as github pages with minimal maintenance</li>
+                <li>provide richer interface that enables clients to evaluate prefix queries</li>
+                <li>client can control prefix autocompletion process</li>
+                <li>still enable straightforward retrieval of dataset</li>
+              </ul>        
             </aside>
           </section>
           <section>
@@ -88,7 +141,13 @@
               <p>Inspired by </p>
               <img style="height: 50vh" src="dist/assets/LDF.svg" alt="image">
             </div>
-            <aside class="notes">         
+            <aside class="notes">   
+              <ul>
+              <li>based on prior work on Linked Data Fragments</li>     
+              <li>idea of letting clients evaluate queries over fragments of a dataset</li>     
+              <li>TPF</li>
+              <li>client can solve sparql, slow if you have no identifiers</li>
+              </ul> 
             </aside>
           </section>
         </section>
@@ -98,55 +157,51 @@
           <section data-transition="fade" data-transition-speed="fast">
             <p>A file-based architecture for prefix search with an acceptable user-perceived performance that enables clients to take control of the query evaluation process</p>
             <aside class="notes">         
+              <ul>
+                <li>Leads us to our proposal</li>
+                <li>A file based architecture for prefix search with an acceptable user-perceived performance that enables clients to take control of the query evaluation process.</li>
+                <li>Lets analyze this proposal</li>
+              </ul>
             </aside>
           </section>
           <section data-transition="fade" data-transition-speed="fast">
             <p>A <b style="color:red">file-based architecture</b> for prefix search with an acceptable user-perceived performance that enables clients to take control of the query evaluation process</p>
-            <aside class="notes">         
+            <aside class="notes">   
+              <ul>
+                <li>publish a dataset as files on the web</li>
+                <li>no active server component, make use of services such as github pages</li>
+              </ul>      
             </aside>
           </section>
           <section data-transition="fade" data-transition-speed="fast">
             <p>A <b style="color:red">file-based architecture</b> for <b style="color:red">prefix search</b> with an acceptable user-perceived performance that enables clients to take control of the query evaluation process</p>
-            <aside class="notes">         
+            <aside class="notes">     
+              <ul>
+                <li>Our focus is on providing prefix search autocompletion</li>
+                <li>client can match entities in the dataset with a given prefix value</li>
+              </ul>    
             </aside>
           </section>
           <section data-transition="fade" data-transition-speed="fast">
             <p>A <b style="color:red">file-based architecture</b> for <b style="color:red">prefix search</b> with an acceptable <b style="color:red">user-perceived performance</b> that enables clients to take control of the query evaluation process</p>
-            <aside class="notes">         
+            <aside class="notes">  
+              <ul>
+                <li>We focus on providing an acceptable user perceived performance for evaluating prefix queries</li>
+                <li>focus of our evaluation</li>
+              </ul>       
             </aside>
           </section>
           <section data-transition="fade" data-transition-speed="fast">
             <p>A <b style="color:red">file-based architecture</b> for <b style="color:red">prefix search</b> with an acceptable <b style="color:red">user-perceived performance</b> that <b style="color:red">enables clients to take control</b> of the query evaluation process</p>
-            <aside class="notes">         
+            <aside class="notes">   
+              <ul>
+                <li>We aim to give the client control over autocompletion process</li>
+                <li>independent of specific fragmentation strategy of server</li>
+              </ul>      
             </aside>
           </section>
         </section>
-        
-<!-- 
-
-        <section>
-          <h3>Related work</h3>
-          <p>Linked Open Vocabularies</p>
-          <p>Pelias</p>
-          <aside class="notes">         
-          </aside>
-        </section>
-
-        <section>
-          <h3>Linked Data Fragments</h3>
-          <p>Triple Pattern Fragments</p>
-          <aside class="notes">         
-          </aside>
-        </section>
-
-        <section>
-          <h3>Developments</h3>
-          <p>client query execution</p>
-          <p>query continuation</p>
-          <aside class="notes">         
-          </aside>
-        </section> -->
-
+    
         <section>
           <h3>What do we need</h3>
           <section data-auto-animate>
@@ -174,7 +229,16 @@
               <li>a generic client</li>
             </ul>
           </section>
-          <aside class="notes">         
+          <aside class="notes">
+            <ul>
+              <li>To achieve this, we need three components</li>
+              <li>A dataset index</li>
+              <li>use to connect the dataset entities to a given prefix</li>
+              <li>A self describing fragmentation</li>
+              <li>allows clients to traverse the created search space, without having to know anything about fragmentation</li>
+              <li>A generic client</li>
+              <li>can traverse this created search space to evaluate prefix queries</li>
+            </ul>         
           </aside>
         </section>
 
@@ -257,7 +321,14 @@
               </div>
             </div>
           </section>
-          <aside class="notes">         
+          <aside class="notes">   
+            <ul>
+              <li>First decide on what properties we want to index</li>
+              <li>example</li>
+              <li>decide on datastructure</li>
+              <li>chose balanced search trees for reasons listed</li>
+              <li>more specifically B trees as can link to any amount of child nodes</li>
+            </ul>
           </aside>
         </section>
 
@@ -270,6 +341,12 @@
               <li>a generic client</li>
             </ul>
           </section>
+          <aside class="notes">   
+            <ul>
+              <li>Now that we have our data indexed, we need to fragment the dataset</li>
+              <li>can be queried by client</li>
+            </ul>
+          </aside>
         </section>
 
         <section>
@@ -295,9 +372,16 @@
               }
             </code></pre>
             <p>Dataset entities are members of the collection</p>
+            <aside class="notes">   
+              <ul>
+                <li>First, we create a collection object</li>
+                <li>entrypoint to the fragmentations of the dataset collection</li>
+                <li>dataset entities are defined as members of this collection</li>
+              </ul>
+            </aside>
           </section>
           <section data-auto-animate>
-            <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="2">
+            <pre data-id="code-animation"><codentrypoint to the fragmentations of the dataset collectione data-trim data-noescape data-line-numbers="2">
               {
                 "@context":"https://w3id.org/tree#",
                 "@id":"#Dataset",
@@ -307,6 +391,12 @@
               }
               </code></pre>
               <p>We need to define the relations between our fragments</p>
+              <aside class="notes">   
+                <ul>
+                  <li>There is no support yet for describing tree structures in RDF</li>
+                  <li>For this we created tree ontology, describing relations between nodes of a tree structure</li>
+                </ul>
+              </aside>
           </section>
           <section data-auto-animate>
             <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="5-7">
@@ -321,6 +411,12 @@
               }
               </code></pre>
               <p>We discover the root through the view property</p>
+              <aside class="notes">   
+                <ul>
+                  <li>From the indexing stucture, every node is used to create a fragment of the dataset.</li>
+                  <li>The root nodes of the structure are then stored as views on this dataset object</li>
+                </ul>
+              </aside>
           </section>
           <section data-auto-animate>
             <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="3-7">
@@ -337,6 +433,11 @@
               }
               </code></pre>
               <p>Dataset entities are members of the collection</p>
+              <aside class="notes">   
+                <ul>
+                  <li>In these fragments, the node is then described as being part of the collection, containing the members stored in this fragment</li>
+                </ul>
+              </aside>
           </section>       
           <section data-auto-animate>
             <pre data-id="code-animation"><code data-trim data-noescape data-line-numbers="3,5-13">
@@ -356,8 +457,17 @@
               }
               </code></pre>
               <p style="font-size: smaller;">This relation leads to a fragment containing entities of the dataset with a <em>foaf:name</em> property greater than <em>Alice</em></p>
+              <aside class="notes">   
+                <ul>
+                  <li>Relations to the child nodes of the structure in their containing fragments of the dataset are described by relations</li>
+                  <li>This relation points to a node fragment that contains entities of the dataset that have a value for their foaf:name property that is greater than Alice</li>
+                </ul>
+              </aside>
           </section>             
-          <aside class="notes">         
+          <aside class="notes">      
+            <ul>
+              <li>Finally we need a client that can traverse these generated fragmentations of a dataset</li>
+            </ul>   
           </aside>
         </section>
 
@@ -390,8 +500,8 @@
                         {
                           "@id": "/collection"
                           "view": [
-                            "/fname/root#node",
-                            "/lname/root#node"
+                            "/fname/root",
+                            "/lname/root"
                           ]
                         }
                     </code></pre>
@@ -415,8 +525,8 @@
                         {
                           "@id": "/collection"
                           "view": [
-                            "/fname/root#node",
-                            "/lname/root#node"
+                            "/fname/root",
+                            "/lname/root"
                           ]
                         }
                     </code></pre>
@@ -586,7 +696,6 @@
                   <p style="font-size: smaller;">Does the relation path match the queried <em>firstName</em> property?</p>
                   <p style="font-size: smaller;">Is <em>Carol</em> greater than <em>Alice</em>?</p>
                 </ol>
-                
               </div>
               <div class="column">
                 <div class="row">
@@ -631,9 +740,13 @@
                 </div>
               </div>
             </div>
+            <aside class="notes">         
+              <ul>
+                <li>in case of non matching properties we cannot decide usefulness</li>
+              </ul>
+            </aside>
           </section>
           <section data-auto-animate>
-            
             <div class="row clientAlgContent">
               <div class="column">
                 <ol>
@@ -785,9 +898,18 @@
         <section>
           <p>server cache hit rate for transport stops queries</p>
           <img style="height: 40vh;" src="dist/assets/servercachehitratio.svg" alt="image">
-          <p style="font-size: 0.6em;">The baseline query server stagnates at around 20%, where our proposed
+          <p style="font-size: 0.54em;">At a 10% cache size, the baseline query server stagnates at around 20%, where our proposed
             approach can serve more than half the requests from the server cache after an initial warmup period.</p>
-          <aside class="notes">         
+          <aside class="notes">  
+            <ul>
+              <li>baseline query server stagnates a lot sooner</li>
+              <li>can serve over half evaluating queries over fragmentation</li>
+              <li>REASONS</li>
+              <li>more fragments being retrieved for a single query</li>
+              <li>corrections in answers lead to reuse of previously cached data</li>
+              <li>will not send more requests if string is not found after longest match</li>
+              <li>Tree structure leads to sure hits for nodes close to the root</li>
+            </ul>       
           </aside>
         </section>
 
@@ -802,7 +924,12 @@
             </p>
           </div>
           <aside class="notes">         
-            This also counts cached results!
+            <ul>
+              <li>The efficiency shows a large quantity of 0% queries.</li>
+              <li>This is due to targets that do not result in an answer (not in the collection).</li>
+              <li>For other requests we see the efficiency averages over 50%</li>
+              <li>Take into account that queries not always start at first letter</li>
+            </ul>
           </aside>
         </section>
 
@@ -816,7 +943,11 @@
             After an initial warmup of the client cache, less fragments need to be retrieved and the bandwidth requirement drops.
           </p>
           <aside class="notes">         
-            This drop in bandwidth can likely be attributed also to transport stops being a dataset that you will ofter request the same stops multiple times.
+            <li>see that for evaluating a series of prefix queries, we can out at a maximum of 25 kb in rare cases for evaluating a series of prefix requests.</li>
+            <li>see that after an initial client cache warmup, we can evaluate queries at a much lower cost</li>
+            <li>This drop in bandwidth can likely be attributed also to caching</li>
+            <li>This is confirmed by our analysis of the amount of HTTP requests necessary</li>
+            <li>transport stops being a dataset that you will ofter request the same stops multiple times.</li>
           </aside>
         </section>
 
@@ -831,7 +962,12 @@
               On average queries over this fragmentation can return around 15 results in a 150 ms interval.
             </p>
             <aside class="notes">  
-              later queries may not have the full 25 results available for the query, leading to a decrease in retrieved results       
+              <ul>
+                <li>We see an average of 15 results in a 150ms interval</li>
+                <li>first results because of caching</li>
+                <li>later queries may not have the full 25 results available for the query, leading to a decrease in retrieved results</li>
+              </ul>
+              
             </aside>
           </section>
           <section>
@@ -843,10 +979,13 @@
               Randomized queries over a large dataset (3.87m entities) leads to a slower initial retrieval of results.
               Subsequent queries can use cached fragments to provide around 15 results in the 150 ms interval.
             </p>
-            <aside class="notes">    
-              - randomized queries do not start from the first letter!
-              - fragments themselves larger, as entities have more triples    
-              - deeper tree structure 
+            <aside class="notes">   
+              <ul>
+                <li>randomized queries do not start from the first letter!</li>
+                <li>fragments themselves larger, as entities have more triples</li>
+                <li>takes longer to retrieve and process</li>
+                <li>deeper tree structure</li>
+              </ul> 
             </aside>
           </section>
         </section>
@@ -860,7 +999,11 @@
               Queries evaluated over the transport stops dataset (73k entities) can take advantage of larger fragment sizes because of the lower depth of the fragmentation structure.
               Larger fragments provide more results in a single HTTP request.
             </p>
-            <aside class="notes">         
+            <aside class="notes">     
+              <li>Previous results made use of a fragment size of 25.</li>    
+              <li>25 entities, 25 children.</li>    
+              <li>we came to this conclusion after testing different fragment sizes</li>    
+              <li>for smaller datasets, we saw that larger fragment sizes were possible</li>    
             </aside>
           </section>
           <section>
@@ -872,6 +1015,11 @@
               Smaller fragment sizes enable a faster descent in the fragmentation structure.     
             </p>
             <aside class="notes">  
+              <li>but for larger dataset, the startup period to find the position in the tree to start retrieving results for the query </li>    
+              <li>caused by deeper tree structure</li>    
+              <li>larger fragment sizes with more data properties per entity</li>  
+              <li>smaller fragments enable faster descent</li>   
+              <li>as seen we do not have a one size fits all solution yet</li>   
             </aside>
           </section>
         </section>
